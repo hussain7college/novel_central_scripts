@@ -1,5 +1,19 @@
 {
   "name": "novel_central_scripts",
-  "packageManager": "yarn@4.2.2",
-  "type": "module"
+  "description": "RESTful API to fetch novels",
+  "packageManager": "pnpm@9.1.1",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/server.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^10.0.0",
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "jsdom": "^24.0.0",
+    "knex": "^3.1.0",
+    "nodemon": "^3.1.0"
+  }
 }
