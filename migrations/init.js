@@ -4,29 +4,27 @@
  */
 const up = function (knex) {
 
-  return Promise.resolve(
-    // Create novels table
-    knex.schema.createTable('novels', (table) => {
+  return Promise.resolve(knex.schema
+    .createTable('novels', (table) => {
       table.increments('id').primary();
       table.string('name');
-      table.string('urls');
+      table.string('url');
       table.string('summary');
       table.string('genre');
       table.string('created_at');
       table.string('updated_at');
-    }),
-    // Create chapters table
-    knex.schema.createTable('chapters', (table) => {
+    })
+    .createTable('chapters', (table) => {
       table.increments('id').primary();
       table.integer('novel_id').unsigned().references('id').inTable('novels');
+      table.string('number');
+      table.string('name');
       table.string('url');
       table.text('content');
       table.string('created_at');
       table.string('updated_at');
     })
   );
-
-
 };
 
 /**
@@ -35,10 +33,9 @@ const up = function (knex) {
  */
 const down = function (knex) {
   return Promise.resolve(
-    // Drop chapters table
-    knex.schema.dropTable('chapters'),
-    // Drop novels table
-    knex.schema.dropTable('novels')
+    knex.schema
+      .dropTable('chapters')
+      .dropTable('novels')
   );
 
 };

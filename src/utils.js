@@ -44,7 +44,7 @@ async function getChaptersUrls(url) {
 }
 
 
-async function getChaptersBody(url) {
+async function getChaptersContent(url) {
   try {
     const response = await fetch(url);
     const html = await response.text();
@@ -75,4 +75,4 @@ async function getChaptersBody(url) {
 }
 
 
-export { getChaptersUrls, getChaptersBody };
+export { getChaptersUrls, getChaptersContent };
